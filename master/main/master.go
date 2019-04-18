@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cronSystem/master"
+	"github.com/eugene710899989/cron-manage/master"
 	"fmt"
 	"github.com/joho/godotenv"
 	"os"

@@ -1,7 +1,7 @@
 package master
 
 import (
-	"cronSystem/common"
+	"github.com/eugene710899989/cron-manage/common"
 	"encoding/json"
 	"flag"
 	"net"

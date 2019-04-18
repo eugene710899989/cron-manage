@@ -2,7 +2,7 @@ package worker
 
 import (
 	"context"
-	"cronSystem/common"
+	"github.com/eugene710899989/cron-manage/common"
 	"fmt"
 	"github.com/coreos/etcd/clientv3"
 	"net"

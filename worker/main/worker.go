@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cronSystem/worker"
+	"github.com/eugene710899989/cron-manage/worker"
 	"fmt"
 	"github.com/joho/godotenv"
 	"os"

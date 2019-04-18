@@ -1,7 +1,7 @@
 package master
 
 import (
-	"cronSystem/common"
+	"github.com/eugene710899989/cron-manage/common"
 	"fmt"
 	"github.com/globalsign/mgo"
 	"net/url"
@@ -64,7 +64,7 @@ func LogInit() (err error) {
 	var (
 		timeOut int
 	)
-	config := MongoConnConfig{Database: os.Getenv("mongoDbName"), ServerList: os.Getenv("mongoAddress")}
+	config := MongoConnConfig{Database: os.Getenv("mongoDbName"), ServerList: os.Getenv("mongoAddress"),Username:os.Getenv("mongoUserName"),Password:os.Getenv("mongoPassword")}
 	//设置超时时间为5s
 
 	if timeOut, err = strconv.Atoi(os.Getenv("mongoTimeOut")); err != nil {

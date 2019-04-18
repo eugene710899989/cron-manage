@@ -1,4 +1,4 @@
-module cronSystem
+module cron-manage
 
 require (
 	github.com/coreos/etcd v3.3.12+incompatible

@@ -2,7 +2,7 @@ package master
 
 import (
 	"context"
-	"cronSystem/common"
+	"github.com/eugene710899989/cron-manage/common"
 	"github.com/coreos/etcd/clientv3"
 	"os"
 	"strconv"
