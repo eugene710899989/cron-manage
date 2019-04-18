@@ -4,7 +4,7 @@ import (
 	"context"
 	"cron-manage/common"
 	"encoding/json"
-	"github.com/coreos/etcd/clientv3"
+	"go.etcd.io/etcd/clientv3"
 	"os"
 	"strconv"
 	"strings"
