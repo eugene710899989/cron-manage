@@ -2,7 +2,7 @@ package worker
 
 import (
 	"context"
-	"github.com/eugene710899989/cron-manage/common"
+	"cron-manage/common"
 	"github.com/coreos/etcd/clientv3"
 	"github.com/coreos/etcd/mvcc/mvccpb"
 	"log"

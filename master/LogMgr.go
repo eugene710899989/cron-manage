@@ -1,7 +1,7 @@
 package master
 
 import (
-	"github.com/eugene710899989/cron-manage/common"
+	"cron-manage/common"
 	"fmt"
 	"github.com/globalsign/mgo"
 	"net/url"
