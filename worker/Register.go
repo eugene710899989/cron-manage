@@ -4,7 +4,7 @@ import (
 	"context"
 	"cron-manage/common"
 	"fmt"
-	"github.com/coreos/etcd/clientv3"
+	"go.etcd.io/etcd/clientv3"
 	"net"
 	"os"
 	"strconv"

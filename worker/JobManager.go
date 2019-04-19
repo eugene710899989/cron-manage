@@ -3,8 +3,8 @@ package worker
 import (
 	"context"
 	"cron-manage/common"
-	"github.com/coreos/etcd/clientv3"
 	"github.com/coreos/etcd/mvcc/mvccpb"
+	"go.etcd.io/etcd/clientv3"
 	"log"
 	"os"
 	"strconv"
@@ -73,7 +73,6 @@ func (j *JobMgr) WatchJob() error {
 		watchResChan       clientv3.WatchChan
 		watchRes           clientv3.WatchResponse
 		watchStartRevision int64
-		kvpair             *mvccpb.KeyValue
 		job                *common.Job
 		err                error
 		jobName            string
@@ -83,7 +82,7 @@ func (j *JobMgr) WatchJob() error {
 	if getRe, err = j.kv.Get(context.TODO(), common.JOB_PREFIX, clientv3.WithPrefix()); err != nil {
 		return err
 	}
-	for _, kvpair = range getRe.Kvs {
+	for _, kvpair := range getRe.Kvs {
 		job = &common.Job{}
 		if err = common.UnPackJob(kvpair.Value, job); err == nil {
 			event = common.BuildEvent(common.EVENT_SAVE, job)
