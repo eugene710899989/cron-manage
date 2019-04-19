@@ -19,7 +19,7 @@ func main() {
 	if err != nil {
 		goto ERR
 	}
-	err = godotenv.Load(root + "/../.env")
+	err = godotenv.Load(root + "/worker/.env")
 	if err != nil {
 		goto ERR
 	}

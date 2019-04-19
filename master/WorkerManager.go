@@ -3,7 +3,7 @@ package master
 import (
 	"context"
 	"cron-manage/common"
-	"go.etcd.io/etcd/clientv3"
+	"github.com/coreos/etcd/clientv3"
 	"os"
 	"strconv"
 	"strings"

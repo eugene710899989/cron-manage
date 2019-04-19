@@ -4,7 +4,7 @@ import (
 	"context"
 	"cron-manage/common"
 	"encoding/json"
-	"go.etcd.io/etcd/clientv3"
+	"github.com/coreos/etcd/clientv3"
 	"os"
 	"strconv"
 	"strings"
@@ -160,3 +160,33 @@ func (jm *JobMgr) JobLog(name string) (logs []*common.JobLog, err error) {
 	return
 
 }
+
+//etcd --name public_infra --initial-advertise-peer-urls http://10.0.22.38:2380 \
+//--listen-peer-urls http://10.0.22.38:2380 \
+//--listen-client-urls http://10.0.22.38:2379 \
+//--advertise-client-urls http://10.0.22.38:2379 \
+//--initial-cluster-token eugene-cluster \
+//--initial-cluster public_infra=http://10.0.22.38:2380,public_infra1=http://10.0.22.38:12380,public_infra2=http://10.0.22.38:22380 \
+//--initial-cluster-state new
+//
+//
+//etcd --name public_infra1 --initial-advertise-peer-urls http://10.0.22.38:12380 \
+//--listen-peer-urls http://10.0.22.38:12380 \
+//--listen-client-urls http://10.0.22.38:12379 \
+//--advertise-client-urls http://10.0.22.38:12379 \
+//--initial-cluster-token eugene-cluster \
+//--initial-cluster public_infra=http://10.0.22.38:2380,public_infra1=http://10.0.22.38:12380,public_infra2=http://10.0.22.38:22380 \
+//--initial-cluster-state new
+//
+//etcd --name public_infra2 --initial-advertise-peer-urls http://10.0.22.38:22380 \
+//--listen-peer-urls http://10.0.22.38:22380 \
+//--listen-client-urls http://10.0.22.38:22379 \
+//--advertise-client-urls http://10.0.22.38:22379 \
+//--initial-cluster-token eugene-cluster \
+//--initial-cluster public_infra=http://10.0.22.38:2380,public_infra1=http://10.0.22.38:12380,public_infra2=http://10.0.22.38:22380 \
+//--initial-cluster-state new
+
+//
+//etcd1: etcd --name infra1 --listen-client-urls http://10.0.22.38:2379 --advertise-client-urls http://10.0.22.38:2379 --listen-peer-urls http://10.0.22.38:12380 --initial-advertise-peer-urls http://10.0.22.38:12380 --initial-cluster-token etcd-cluster-1 --initial-cluster 'infra1=http://10.0.22.38:12380,infra2=http://10.0.22.38:22380,infra3=http://10.0.22.38:32380' --initial-cluster-state new --enable-pprof
+//etcd2: etcd --name infra2 --listen-client-urls http://10.0.22.38:22379 --advertise-client-urls http://10.0.22.38:22379 --listen-peer-urls http://10.0.22.38:22380 --initial-advertise-peer-urls http://10.0.22.38:22380 --initial-cluster-token etcd-cluster-1 --initial-cluster 'infra1=http://10.0.22.38:12380,infra2=http://10.0.22.38:22380,infra3=http://10.0.22.38:32380' --initial-cluster-state new --enable-pprof
+//etcd3: etcd --name infra3 --listen-client-urls http://10.0.22.38:32379 --advertise-client-urls http://10.0.22.38:32379 --listen-peer-urls http://10.0.22.38:32380 --initial-advertise-peer-urls http://10.0.22.38:32380 --initial-cluster-token etcd-cluster-1 --initial-cluster 'infra1=http://10.0.22.38:12380,infra2=http://10.0.22.38:22380,infra3=http://10.0.22.38:32380' --initial-cluster-state new --enable-pprof
